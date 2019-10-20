@@ -11,6 +11,7 @@
 
 <style lang="scss">
 @import "src/styles/global.scss";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
 
 body {
   margin: 0;
@@ -18,7 +19,7 @@ body {
 }
 
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: left;
