@@ -9,25 +9,29 @@
     "server": "nodemon server/server"
   },
   "dependencies": {
-    "core-js": "^3.1.2",
+    "core-js": "^3.6.5",
     "express": "^4.17.1",
     "nodemon": "^1.19.4",
-    "vue": "^2.6.10",
-    "vue-router": "^3.0.6",
-    "vuex": "^3.0.1"
+    "pg": "^8.0.3",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.7",
+    "vue": "^2.6.11",
+    "vue-router": "^3.1.6",
+    "vuex": "^3.3.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.0.0",
-    "@vue/cli-plugin-eslint": "^4.0.0",
-    "@vue/cli-plugin-router": "^4.0.0",
-    "@vue/cli-plugin-vuex": "^4.0.0",
-    "@vue/cli-service": "^4.0.0",
+    "@vue/cli-plugin-babel": "^4.3.1",
+    "@vue/cli-plugin-eslint": "^4.3.1",
+    "@vue/cli-plugin-router": "^4.3.1",
+    "@vue/cli-plugin-vuex": "^4.3.1",
+    "@vue/cli-service": "^4.3.1",
     "@vue/eslint-config-airbnb": "^4.0.0",
-    "babel-eslint": "^10.0.1",
+    "babel-eslint": "^10.1.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
-    "node-sass": "^4.12.0",
-    "sass-loader": "^8.0.0",
-    "vue-template-compiler": "^2.6.10"
+    "node-sass": "^4.14.0",
+    "sass-loader": "^8.0.2",
+    "sequelize-cli": "^5.5.1",
+    "vue-template-compiler": "^2.6.11"
   }
 }

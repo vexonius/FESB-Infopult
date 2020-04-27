@@ -1,18 +1,18 @@
 .title {
   font-weight: 700;
-  font-size: 30px;
+  font-size: 26px;
   padding: 0 12px;
 }
 
 .subtitle {
   font-weight: 400;
-  font-size: 26px;
+  font-size: 22px;
   padding: 0 12px;
 }
 
 .text {
   font-weight: 400;
-  font-size: 21px;
+  font-size: 18px;
   line-height: 24px;
 }
 
@@ -38,6 +38,19 @@ p{
   flex-direction: column;
   margin: 30px auto;
 }
+
+.rounded-template {
+  position: inherit;
+  display: inherit;
+  background: #e7e7e7;
+  padding: 40px;
+  border-radius: 30px;
+}
+
+.white-bg {
+  background: #ffffff;
+}
+
 .column {
   display: block;
   flex-basis: 0;
@@ -58,7 +71,7 @@ p{
 }
 
 .shadow {
-  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.05);
 }
 
 .image {
