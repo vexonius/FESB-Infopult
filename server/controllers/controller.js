@@ -1,3 +1,5 @@
+const db = require('../models/index')
+
 module.exports = {
   async getQueryResults(req, res) {
     return res.status(200).json('All query results')
@@ -11,4 +13,4 @@ module.exports = {
   async getPerson(req, res) {
     return res.status(200).json('osoba')
   }
-};
+}

@@ -1,18 +1,23 @@
-"use strict";
+'use strict'
 module.exports = (sequelize, DataTypes) => {
   const Office = sequelize.define(
-    "Office",
+    'Office',
     {
-      id: DataTypes.STRING,
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: DataTypes.INTEGER
+      },
       fullTag: DataTypes.STRING,
-      floor: DataTypes.NUMBER,
-      doorNumber: DataTypes.NUMBER,
+      floor: DataTypes.INTEGER,
+      doorNumber: DataTypes.INTEGER,
       buildingSection: DataTypes.STRING
     },
     {}
-  );
+  )
   Office.associate = function(models) {
     // associations can be defined here
-  };
-  return Office;
-};
+  }
+  return Office
+}
