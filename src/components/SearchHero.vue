@@ -11,8 +11,13 @@
             @blur="magic_flag = false"
           />
           <div v-show="magic_flag == true" class="dropdown has-padding-16">
-            <ul>
-              <li v-for="item in items" :key="item.id" class="full-width">
+            <ul style="display: block;">
+              <li
+                v-for="item in items"
+                :key="item.id"
+                @click="routeToGuide()"
+                class="full-width"
+              >
                 <p class="text light hover-highlight full-width">
                   {{ item.soba }}, {{ item.name }}
                 </p>
@@ -47,6 +52,11 @@ export default {
           soba: 'B704'
         }
       ]
+    }
+  },
+  methods: {
+    routeToGuide() {
+      return this.$router.push('/guide')
     }
   }
 }

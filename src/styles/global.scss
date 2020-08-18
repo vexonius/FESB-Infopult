@@ -134,6 +134,7 @@ input:focus {
 }
 
 .dropdown {
+  display: block;
   position: absolute;
   left: 0;
   right: 0;
@@ -142,6 +143,7 @@ input:focus {
 }
 
 .full-width {
+  display: block;
   width: 100%;
 }
 
