@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <div class="container shadow">
-      <div class="nav">
+    <div class="">
+      <div class="nav navbar-padding">
         <h1 class="title">FESB Infopult</h1>
       </div>
     </div>
@@ -10,6 +10,7 @@
 </template>
 
 <style lang="scss">
+@import "../node_modules/bulma";
 @import "src/styles/global.scss";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
 
