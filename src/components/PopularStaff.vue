@@ -1,6 +1,6 @@
 <template>
   <div class="section is-desktop">
-    <h2 class="title is-3 has-text-black">{{ header }}</h2>
+    <h2 class="title is-3 has-text-black">{{header}}</h2>
     <div class="columns">
       <div class="column is-one-quarter" v-for="item in staff" :key="item">
         <card :name="item.name" :email="item.email" :room="item.room" />

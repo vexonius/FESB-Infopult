@@ -8,18 +8,16 @@
             class="text light"
             :placeholder="inputPlaceholder"
             @focus="magic_flag = true"
-            @blur="magic_flag = false"
           />
           <div v-show="magic_flag == true" class="dropdown has-padding-16">
             <ul style="display: block;">
-              <li
-                v-for="item in items"
-                :key="item.id"
-                @click="routeToGuide()"
-                class="full-width"
-              >
-                <p class="text light hover-highlight full-width">
-                  {{ item.soba }}, {{ item.name }}
+              <li v-for="item in items" :key="item.id" class="full-width">
+                <p
+                  type="button"
+                  @click="routeToGuide()"
+                  class="text light hover-highlight full-width"
+                >
+                  {{ item.name }}
                 </p>
               </li>
             </ul>

@@ -2,16 +2,37 @@
   <div id="app">
     <div class="">
       <div class="nav navbar-padding">
-        <h1 class="title">FESB Infopult</h1>
+        <h1 class="title pointer" @click="$router.push('/')">{{ appName }}</h1>
       </div>
     </div>
-    <router-view />
+    <transition name="fade" mode="out-in">
+      <router-view />
+    </transition>
+    <infopultFooter />
   </div>
 </template>
 
+<script>
+import InfopultFooter from './components/InfopultFooter'
+
+export default {
+  components: {
+    InfopultFooter
+  },
+  data() {
+    return {
+      appName: 'FESB Infopult'
+    }
+  },
+  setup() {
+    return {}
+  }
+}
+</script>
+
 <style lang="scss">
-@import "../node_modules/bulma";
-@import "src/styles/global.scss";
+@import '../node_modules/bulma';
+@import 'src/styles/global.scss';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
 
 body {
