@@ -8,6 +8,8 @@
             class="text light"
             :placeholder="inputPlaceholder"
             @focus="magic_flag = true"
+            @keyup="getSearchResults()"
+            v-model="searchTerm"
           />
           <div v-show="magic_flag == true" class="dropdown has-padding-16">
             <ul style="display: block;">
@@ -17,7 +19,7 @@
                   @click="routeToGuide()"
                   class="text light hover-highlight full-width"
                 >
-                  {{ item.name }}
+                  {{ item.title }} {{ item.firstName }} {{ item.lastName }}
                 </p>
               </li>
             </ul>
@@ -29,6 +31,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'searchHero',
   data() {
@@ -36,25 +40,22 @@ export default {
       inputPlaceholder: 'Unesite ime osobe...',
       inputHeading: 'Pronađite put do ureda osoblja FESB-a',
       magic_flag: false,
-      items: [
-        {
-          name: 'Julije Ožegović',
-          soba: 'B502'
-        },
-        {
-          name: 'Ivica Puljak',
-          soba: 'B601'
-        },
-        {
-          name: 'Slavko Vujević',
-          soba: 'B704'
-        }
-      ]
+      items: [],
+      searchTerm: ''
     }
   },
   methods: {
     routeToGuide() {
       return this.$router.push('/guide')
+    },
+    getSearchResults() {
+      axios
+        .get('http://localhost:8081/pretraga/' + this.searchTerm)
+        .then(response => {
+          this.items = response.data
+          console.log(response.data)
+        })
+        .catch(err => console.log(err))
     }
   }
 }

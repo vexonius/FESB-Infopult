@@ -3,6 +3,12 @@ module.exports = (sequelize, DataTypes) => {
   const Person = sequelize.define(
     'Person',
     {
+      id: {
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true,
+        type: DataTypes.INTEGER
+      },
       firstName: DataTypes.STRING,
       lastName: DataTypes.STRING,
       email: DataTypes.STRING,
@@ -12,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       position: DataTypes.STRING,
       phone: DataTypes.INTEGER,
       departemnt: DataTypes.STRING,
-      officeID: DataTypes.INTEGER,
+      officeID: DataTypes.STRING,
       profilePage: DataTypes.STRING
     },
     {}

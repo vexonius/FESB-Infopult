@@ -3,14 +3,16 @@
     <h2 class="title is-3 has-text-black">{{header}}</h2>
     <div class="columns">
       <div class="column is-one-quarter" v-for="item in staff" :key="item">
-        <card :name="item.name" :email="item.email" :room="item.room" />
+        <card :name="item.firstName" :lastname="item.lastName" :email="item.email" :room="item.officeID" :photoUrl="item.photoUrl" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+
 import Card from '../components/Card'
+import axios from 'axios'
 
 export default {
   name: 'popularStaff',
@@ -25,31 +27,18 @@ export default {
   },
   data() {
     return {
-      staff: [
-        {
-          name: 'Sven Gotovac',
-          email: 'sven@fesb.hr',
-          room: 'A312'
-        },
-        {
-          name: 'Julije Ožegović',
-          email: 'julije@fesb.hr',
-          room: 'B502'
-        },
-        {
-          name: 'Ivica Puljak',
-          email: 'julije@fesb.hr',
-          room: 'B601'
-        },
-        {
-          name: 'Slavko Vujević',
-          email: 'julije@fesb.hr',
-          room: 'B704'
-        }
-      ],
+      staff: [],
       popularSearches: 'Često tražene osobe'
     }
-  }
+  },
+  mounted () {
+    axios.get('http://localhost:8081/osobe/department/dekanat')
+    .then(response => {
+      this.staff = response.data
+      console.log(response.data)
+    })
+    .catch(err => console.log(err))
+  },
 }
 </script>
 
