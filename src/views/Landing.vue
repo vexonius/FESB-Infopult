@@ -1,8 +1,8 @@
 <template>
   <div>
     <searchHero />
-    <popularStaff :header="deanOffice" />
-    <popularStaff :header="studentDuty" />
+    <popularStaff :header="deanOffice" departmentProp="dekanat" />
+    <popularStaff :header="zee" departmentProp="elektroenergetika" />
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
   },
   data() {
     return {
-        studentDuty: 'Studenska služba',
+        zee: 'Zavod za elektroenergetiku',
         deanOffice: 'Dekanat',
     }
   }

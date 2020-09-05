@@ -5,10 +5,15 @@ module.exports = {
     return res.status(200).json('All query results')
   },
   async info(req, res) {
-    if (db.is)
+    if (db.is) {
       return res
         .status(200)
         .json({ status: 'ok', message: 'All functions working normaly' })
+    } else {
+      return res
+        .status(400)
+        .json({ status: 'error', message: 'Something is not working' })
+    }
   },
   async getAllStaff(req, res) {
     db.Person.findAll()
@@ -28,6 +33,7 @@ module.exports = {
         return res.status(400).json(err)
       })
   },
+
   async getPerson(req, res) {
     let personId = req.params.id
 
@@ -39,17 +45,35 @@ module.exports = {
         return res.status(400).json(err)
       })
   },
+
   async getSearchResults(req, res) {
     let queryTerm = req.params.searchTerm
 
-    db.sequelize
-      .query(
-        'SELECT * FROM "People" AS "Person" WHERE "Person"."firstName" LIKE :name',
-        {
-          replacements: {name: queryTerm},
-          type: db.Sequelize.QueryTypes.SELECT
-        }
-      )
+    // db.sequelize
+    //   .query(
+    //     'SELECT * FROM "People" AS "Person" WHERE "Person"."firstName" LIKE :name',
+    //     {
+    //       replacements: {name: queryTerm},
+    //       type: db.Sequelize.QueryTypes.SELECT
+    //     }
+    //   )
+    //   .then(result => {
+    //     return res.status(200).json(result)
+    //   })
+    //   .catch(err => {
+    //     return res.status(400).json(err)
+    //   })
+
+    db.Person.findAll({
+      limit: 6,
+      where: {
+        firstName: db.sequelize.where(
+          db.sequelize.fn('LOWER', db.sequelize.col('firstName')),
+          'LIKE',
+          '%' + queryTerm + '%'
+        )
+      }
+    })
       .then(result => {
         return res.status(200).json(result)
       })

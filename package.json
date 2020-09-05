@@ -1,6 +1,11 @@
 {
   "name": "infopult",
-  "version": "0.2.0",
+  "version": "1.0.0-alpha",
+  "description": "Interaktivnu web aplikacija koja navodi gosta Fakulteta Elektrotehnike, Strojarstva i Brodogradnje do željenog ureda kroz nekoliko koraka",
+  "author": {
+    "name": "Tino Emer"
+  },
+  "license": "MIT License",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",

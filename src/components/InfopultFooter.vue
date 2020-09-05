@@ -31,9 +31,10 @@
           height="212"
           alt="fesb"
         />
-        <p>Izradio student Tino Emer</p>
       </div>
     </div>
+            <p class="is-7 has-text-centered has-margin-top-24px">🛠️  Izradio student Tino Emer  🛠️</p>
+
   </footer>
 </template>
 

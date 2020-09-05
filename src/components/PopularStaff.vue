@@ -23,6 +23,10 @@ export default {
     header: {
       type: String,
       default: ''
+    },
+    departmentProp: {
+      type: String,
+      default: ''
     }
   },
   data() {
@@ -32,7 +36,7 @@ export default {
     }
   },
   mounted () {
-    axios.get('http://localhost:8081/osobe/department/dekanat')
+    axios.get('http://localhost:8081/osobe/department/' + this.departmentProp)
     .then(response => {
       this.staff = response.data
       console.log(response.data)

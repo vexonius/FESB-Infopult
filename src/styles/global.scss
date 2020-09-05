@@ -122,7 +122,7 @@ input:focus {
   background: url(./assets/fesb1.jpg) no-repeat center center fixed;
 }
 
-.max-width-800{
+.max-width-800 {
   max-width: 800px;
 }
 
@@ -157,4 +157,8 @@ input:focus {
 .navbar-padding {
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.has-margin-top-24px {
+  margin-top: 60px;
 }
