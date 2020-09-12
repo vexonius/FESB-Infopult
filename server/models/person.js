@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     {}
   )
   Person.associate = function(models) {
-    Person.hasOne(models.Office, { as: 'office'})
+    
   }
   return Person
 }

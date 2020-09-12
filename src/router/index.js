@@ -12,7 +12,7 @@ const routes = [
     component: Landing,
   },
   {
-    path: '/guide',
+    path: '/guide/:id',
     name: 'guide',
     component: Guide,
   },

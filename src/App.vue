@@ -5,9 +5,7 @@
         <h1 class="title pointer" @click="$router.push('/')">{{ appName }}</h1>
       </div>
     </div>
-    <transition name="fade" mode="out-in">
-      <router-view />
-    </transition>
+    <router-view />
     <infopultFooter />
   </div>
 </template>
@@ -23,9 +21,6 @@ export default {
     return {
       appName: 'FESB Infopult'
     }
-  },
-  setup() {
-    return {}
   }
 }
 </script>
@@ -33,6 +28,7 @@ export default {
 <style lang="scss">
 @import '../node_modules/bulma';
 @import 'src/styles/global.scss';
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
 
 body {

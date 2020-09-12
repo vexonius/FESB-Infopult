@@ -16,7 +16,7 @@
               <li v-for="item in items" :key="item.id" class="full-width">
                 <p
                   type="button"
-                  @click="routeToGuide()"
+                  @click="routeToGuide(item.id)"
                   class="text light hover-highlight full-width"
                 >
                   {{ item.title }} {{ item.firstName }} {{ item.lastName }}
@@ -45,15 +45,14 @@ export default {
     }
   },
   methods: {
-    routeToGuide() {
-      return this.$router.push('/guide')
+    routeToGuide(id) {
+      return this.$router.push('/guide/' + id)
     },
     getSearchResults() {
       axios
         .get('http://localhost:8081/pretraga/' + this.searchTerm)
         .then(response => {
           this.items = response.data
-          console.log(response.data)
         })
         .catch(err => console.log(err))
     }

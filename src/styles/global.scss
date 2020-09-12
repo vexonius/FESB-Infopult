@@ -162,3 +162,95 @@ input:focus {
 .has-margin-top-24px {
   margin-top: 60px;
 }
+
+.has-padding-24px {
+  margin: 32px 8px;
+  padding: 20px;
+}
+
+.overlay {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+ol {
+  list-style: none;
+  counter-reset: my-awesome-counter;
+  display: flex;
+  flex-direction: column;
+}
+ol li {
+  display: inline-block;
+  counter-increment: my-awesome-counter;
+  padding: 10px 4px;
+  font-size: 1.2rem;
+}
+ol li::before {
+  content: counter(my-awesome-counter);
+  font-weight: bold;
+  font-size: 2rem;
+  background-color: rgb(221, 221, 221);
+  width: 2rem * 1.5;
+  height: 2rem * 1.5;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 2rem * 0.75;
+  line-height: 2rem * 1.5;
+  text-align: center;
+  margin-right: 0.5rem * 0.5;
+  position: relative;
+  top: -2px;
+}
+
+.green-dot {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background-color: #00d1b2;
+  border-radius: 50%;
+  margin: 0 1rem;
+}
+
+.red-dot {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background-color: #ff6347;
+  border-radius: 50%;
+  margin: 0 1rem;
+}
+
+.max-size-400 {
+  max-width: 800px;
+}
+
+.margin-20 {
+  margin-top: 16px;
+  margin-left: 12px;
+}
+
+.card {
+  &.is-horizontal {
+    display: flex;
+    
+    .card-image {
+      width: 100%;
+      height: 100%;
+    }
+    
+    .card-stacked {
+      flex-direction: column;
+      flex: 1 1 auto;
+      display: flex;
+      position: relative;
+      
+      .card-content {
+        flex-grow: 1;
+      }
+    }
+  }
+}

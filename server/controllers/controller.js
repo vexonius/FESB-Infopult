@@ -15,6 +15,7 @@ module.exports = {
         .json({ status: 'error', message: 'Something is not working' })
     }
   },
+
   async getAllStaff(req, res) {
     db.Person.findAll()
       .then(staff => {
@@ -24,6 +25,7 @@ module.exports = {
         return res.status(400).json(err)
       })
   },
+
   async getPopularSearches(req, res) {
     db.query()
       .then(people => {
@@ -39,7 +41,14 @@ module.exports = {
 
     db.Person.findOne({ where: { id: personId } })
       .then(person => {
-        return res.status(200).json(person)
+        db.Point.findAll({ where: { idOffice: 100 } })
+          .then(points => {
+            person.points = points
+            return res.status(200).json(person)
+          })
+          .catch(err => {
+            return res.status(400).json(err)
+          })
       })
       .catch(err => {
         return res.status(400).json(err)
@@ -48,21 +57,6 @@ module.exports = {
 
   async getSearchResults(req, res) {
     let queryTerm = req.params.searchTerm
-
-    // db.sequelize
-    //   .query(
-    //     'SELECT * FROM "People" AS "Person" WHERE "Person"."firstName" LIKE :name',
-    //     {
-    //       replacements: {name: queryTerm},
-    //       type: db.Sequelize.QueryTypes.SELECT
-    //     }
-    //   )
-    //   .then(result => {
-    //     return res.status(200).json(result)
-    //   })
-    //   .catch(err => {
-    //     return res.status(400).json(err)
-    //   })
 
     db.Person.findAll({
       limit: 6,
@@ -81,6 +75,7 @@ module.exports = {
         return res.status(400).json(err)
       })
   },
+
   async getDepartment(req, res) {
     let department = req.params.department
 
@@ -92,7 +87,38 @@ module.exports = {
         return res.status(400).json(err)
       })
   },
-  async getOffice(req, res) {},
-  async getOfficeDirections(req, res) {},
-  async getAllOffices(req, res) {}
+
+  async getOffice(req, res) {
+    let officeId = req.params.id
+
+    db.Office.findOne({ where: { id: officeId } })
+      .then(office => {
+        return res.status(200).json(office)
+      })
+      .catch(err => {
+        return res.status(400).json(err)
+      })
+  },
+
+  async getOfficeDirections(req, res) {
+    let officeId = req.params.id
+
+    db.Direction.findAll({ where: { officeId: officeId } })
+      .then(directions => {
+        return res.status(200).json(directions)
+      })
+      .catch(err => {
+        return res.status(400).json(err)
+      })
+  },
+
+  async getAllOffices(req, res) {
+    db.Office.findAll()
+      .then(offices => {
+        return res.status(200).json(offices)
+      })
+      .catch(err => {
+        return res.status(400).json(err)
+      })
+  }
 }

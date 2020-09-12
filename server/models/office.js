@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     {}
   )
   Office.associate = function(models) {
-    // associations can be defined here
+      Office.belongsTo(models.Person, { foreignKey: 'idPerson' })
   }
   return Office
 }

@@ -37,7 +37,7 @@ Object.keys(db).forEach(modelName => {
   }
 })
 
-Promise.all([db.Person.sync(), db.Office.sync()])
+Promise.all([db.Person.sync(), db.Office.sync(), db.Point.sync()])
   .then(() => console.log('All tables created successfully'))
   .catch(err => console.error('Something went wrong: ' + err))
 
