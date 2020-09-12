@@ -83,7 +83,8 @@ export default {
         height: height
       },
       linesConfig: {
-        points: [0.268, 0.655, 0.268, 0.871, 0.74, 0.871, 0.74, 0.722],
+        points: [],
+        //test values 0.268, 0.655, 0.268, 0.871, 0.74, 0.871, 0.74, 0.722
         stroke: '#00f9ff',
         strokeWidth: 2
       },
@@ -105,8 +106,8 @@ export default {
     axios
       .get('http://localhost:8081/osobe/' + this.$route.params.id)
       .then(response => {
-        this.person = response.data
-        updateOfficePathAndPosition()
+        this.person = response.data.person
+        this.updateOfficePathAndPosition(response.data.points)
       })
       .catch(err => console.log(err))
   },
@@ -133,15 +134,28 @@ export default {
         else this.linesConfig.points[el] *= height
       }
     },
-    updateOfficePathAndPosition() {
-      this.person.points.map(point => {
-        this.linesConfig.points.push(point.x)
-        this.linesConfig.points.push(point.y)
+    updateOfficePathAndPosition(points) {
+      // Sort points by orderNumber property
+      this.sortPoints(points)
+
+      // draw a path to the office
+      points.map(point => {
+        this.linesConfig.points.push(Number(point.x))
+        this.linesConfig.points.push(Number(point.y))
       })
-      this.startCircleConfig.x = this.person.points[0].x
-      this.startCircleConfig.y = this.person.points[0].y
-      this.startCircleConfig.x = this.person.points[this.person.points.length - 1].x
-      this.startCircleConfig.y = this.person.points[this.person.points.length - 1].y
+
+      // draw start position
+      this.startCircleConfig.x = points[0].x
+      this.startCircleConfig.y = points[0].y
+
+      // draw destionation position
+      this.destinationCircleConfig.x = points[points.length - 1].x
+      this.destinationCircleConfig.y = points[points.length - 1].y
+    },
+    sortPoints(points) {
+      return points.sort(function(a, b) {
+        return a.orderNumber - b.orderNumber
+      })
     }
   }
 }

@@ -43,8 +43,8 @@ module.exports = {
       .then(person => {
         db.Point.findAll({ where: { idOffice: 100 } })
           .then(points => {
-            person.points = points
-            return res.status(200).json(person)
+            let data = { person, points }
+            return res.status(200).json(data)
           })
           .catch(err => {
             return res.status(400).json(err)
