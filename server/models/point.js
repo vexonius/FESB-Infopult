@@ -17,7 +17,9 @@ module.exports = (sequelize, DataTypes) => {
   )
 
     Point.associate = function(models) {
-      Point.belongsTo(models.Office, { foreignKey: 'idOffice' })
+      Point.belongsTo(models.Office, 
+        { foreignKey: 'idOffice' }
+        )
     }
 
   return Point

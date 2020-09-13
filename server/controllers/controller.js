@@ -41,7 +41,7 @@ module.exports = {
 
     db.Person.findOne({ where: { id: personId } })
       .then(person => {
-        db.Point.findAll({ where: { idOffice: 100 } })
+        db.Point.findAll({ where: { idOffice: person.officeID } })
           .then(points => {
             let data = { person, points }
             return res.status(200).json(data)

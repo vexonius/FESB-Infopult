@@ -19,7 +19,7 @@
               {{ person.position }} <br />
               Ured {{ person.officeID }} <br />
               Telefon: + (021) {{ person.phone }} <br />
-              <a :href="person.profilePage">{{ person.profilePage }}</a> <br />
+              <a :href="person.profilePage"  class="wrapText is-size-6-mobile">{{ person.profilePage }}</a> <br />
             </div>
           </div>
         </div>
@@ -89,14 +89,14 @@ export default {
         strokeWidth: 2
       },
       startCircleConfig: {
-        x: 0.268,
-        y: 0.655,
+        x: 0.0,
+        y: 0.0,
         radius: 6,
         fill: '#00d1b2'
       },
       destinationCircleConfig: {
-        x: 0.74,
-        y: 0.722,
+        x: 0.0,
+        y: 0.0,
         radius: 6,
         fill: '#ff6347'
       }
